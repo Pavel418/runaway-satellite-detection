@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
 # Paths
-base_dir = r'data'
+base_dir = r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\data'
 
 # Define target directories
 # These are the directories where a subdirectory should be created before moving files
-target_dirs_with_subdirs = [r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\bad_quality_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\cloud_covered_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\inactive_roads', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\perfect_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\normal_data']
+target_dirs_with_subdirs = [r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\bad_quality_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\cloud_covered_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\inactive_roads', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\perfect_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\normal_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\relabel']
 
 # These are the directories where files should be moved directly
 target_dirs_direct_move = [r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\negative_samples\clouds', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\negative_samples\no_road']
@@ -21,8 +21,8 @@ delete_option_index = len(target_dirs)
 target_dirs.append('Delete the directory')
 
 # Iterate over the main subdirectories
-for i in range(4, 154):
-    sub_dir = os.path.join(base_dir, str(i))
+for sub_dir_name in os.listdir(base_dir):
+    sub_dir = os.path.join(base_dir, sub_dir_name)
     for sub_sub_dir in os.listdir(sub_dir):
         sub_sub_dir_path = os.path.join(sub_dir, sub_sub_dir)
         
@@ -45,10 +45,10 @@ for i in range(4, 154):
             if idx == delete_option_index:
                 print(f"{idx}: Delete the directory")
             else:
-                print(f"{idx}: {target_dir}")
+                print(f"{idx}: {os.path.basename(target_dir)}")
 
         # Get user input
-        selection = int(input("Enter a number from 0 to 7 to move the directory: "))
+        selection = int(input("Enter a number from 0 to 8 to move the directory: "))
         
         # Handle deletion or move operation
         if selection == delete_option_index:
@@ -60,17 +60,19 @@ for i in range(4, 154):
 
             # Check if the selected directory is in the list that requires subdirectory creation
             if target_dir in target_dirs_with_subdirs:
-                final_target_dir = os.path.join(target_dir, str(i))
+                final_target_dir = os.path.join(target_dir, sub_dir_name)
                 # Create the target subdirectory if it doesn't exist
                 if not os.path.exists(final_target_dir):
                     print(f"Creating subdirectory {final_target_dir}")  
                     os.makedirs(final_target_dir)
                 else:
                     print(f"Subdirectory {final_target_dir} already exists")
+                # Move the directory
+                shutil.move(sub_sub_dir_path, final_target_dir)
+                print(f"Moved {sub_sub_dir_path} to {final_target_dir}")
             else:
+                new_name = os.path.join(sub_dir, f'{os.path.basename(sub_dir)}_{sub_sub_dir}')
+                os.rename(sub_sub_dir_path, new_name)
                 final_target_dir = target_dir
-        
-            # Move the directory
-            shutil.move(sub_sub_dir_path, final_target_dir)
-
-        print(f"Moved {sub_sub_dir_path} to {final_target_dir}")
+                shutil.move(new_name, final_target_dir)
+                print(f"Moved {new_name} to {final_target_dir}")
