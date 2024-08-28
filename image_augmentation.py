@@ -56,9 +56,9 @@ class ImageAugmentation:
         img_height, img_width = image.shape[:2]
         crop_height, crop_width = crop_size
 
-        (array1 , array2) = line[0]
-        x1, y1 = array1
-        x2, y2 = array2
+        array1 , array2 = line[0]
+        x1, x2 = array1
+        y1, y2 = array2
 
         x_min = min(x1, x2)
         y_min = min(y1, y2)
