@@ -4,14 +4,14 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
 # Paths
-base_dir = r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\data'
+base_dir = r'C:\Users\Pavel\Documents\GitHub\runaway-satellite-detection\multiple_roads'
 
 # Define target directories
 # These are the directories where a subdirectory should be created before moving files
-target_dirs_with_subdirs = [r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\bad_quality_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\cloud_covered_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\inactive_roads', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\perfect_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\normal_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\relabel']
+target_dirs_with_subdirs = [r'C:\Users\Pavel\Documents\Github\runaway-satellite-detection\bad-multi', r'C:\Users\Pavel\Documents\Github\runaway-satellite-detection\good-multi']#[r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\bad_quality_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\cloud_covered_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\inactive_roads', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\perfect_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\normal_data', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\relabel']
 
 # These are the directories where files should be moved directly
-target_dirs_direct_move = [r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\negative_samples\clouds', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\negative_samples\no_road']
+target_dirs_direct_move = []#[r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\negative_samples\clouds', r'C:\Users\Admin\Documents\GitHub\runaway-satellite-detection\negative_samples\no_road']
 
 # Combine the lists for selection purposes
 target_dirs = target_dirs_with_subdirs + target_dirs_direct_move
