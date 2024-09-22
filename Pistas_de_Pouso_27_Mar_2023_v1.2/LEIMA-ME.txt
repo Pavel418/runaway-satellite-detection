@@ -1,0 +1,22 @@
+A Solved - Soluções Geoinformação, www.solved.eco.br, é uma startup de Geotecnologia da Amazônia, membro da Rede MapBiomas, que vem se especializando na produção de dados espaciais voltados à compreensão mais precisa da produção mineral brasileira. Na rede, a Solved é a responsável pelos mapeamentos de Garimpos e dos polos de Mineração Industrial do Brasil.
+
+A base de dados de pistas de pouso está na sua primeira versão 1.2 [27 de Março de 2023] e é feita a partir de interpretação visual de dados de satélite de alta-resolução (4m), na forma de mosaicos mensais livres de nuvem, do ano de 2021, fornecidos pela empresa Planet. Os dados analisados são gratuitos e adquiridos pela Solved através do programa NICFI (Norway’s International Climate & Forests Initiative) de fornecimento de imagens de alta-resolução para os trópicos.
+
+Em sua versão 1.2, formam a tabela de atributos deste dado os seguinte campos:
+
+ID - Identificador Único de cada pista de pouso
+X - Coordenada Geográfica do exio X [Longitude]
+Y - Coordenada Geográfica do exio Y [Latitude]
+SIGLA_PAIS - Identificação codificada do país [3 letras]
+NM_MUN - Nome do município [Apenas para o Brasil]
+CD_MUN - Código do município [Apenas para o Brasil]
+UF - Unidade Federativa [Sigla]
+TI - Nome da Terra Indígena
+TI+5km  - Sinaliza localização de pista até 5 km de uma TI
+Garimpo+5km  - Sinaliza localização de pista até 5 km de um Garimpo
+UC - Nome da Unidade de Conservação
+Reg CIAD - Confirmação boleana de registro na ANAC (SIM/NÃO)
+CIAD - Código de Idetificação do Aeródromo 
+
+
+*** Atenção: Os dados de UCs admitem sobreposição. Assim, para alcançar o número exato de pistas sugere-se a consulta agrupada por X e Y (Latitude e Longitude). Nesta versão há 2.869 pistas indivisualizadas. Os dados de registro do CIAD contemplam aeródromos Públicos e Privados*** 
