@@ -36,7 +36,7 @@ for sub_dir_name in os.listdir(base_dir):
         plt.imshow(img)
         plt.axis('off')
         mng = plt.get_current_fig_manager()
-        mng.full_screen_toggle()
+        mng.full_screen_toggle() 
         plt.show()
         
         # Display the target directories with corresponding numbers, including the delete option
